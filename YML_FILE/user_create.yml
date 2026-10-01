@@ -1,0 +1,19 @@
+---
+- hosts: docker 
+  become: yes
+  vars: 
+    my_bulk_users: 
+      - username: sardar
+        password: danish567
+      - username: Muhammad
+        password: danish567
+      - username: Danish
+        password: danish567
+
+  tasks:
+  - name: Bulk user creation
+    user:
+      name: "{{ item.username }}"
+      password: "{{ item.password | password_hash('sha512') }}"
+      update_password: on_create
+    loop: "{{ my_bulk_users }}"

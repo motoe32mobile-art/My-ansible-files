@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks: - name: Copy the file the redhat system 
+    copy:
+      src: /home/aadmin/ansible/ansible.cfg
+      dest: /home/aadmin/

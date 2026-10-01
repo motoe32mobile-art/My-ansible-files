@@ -1,0 +1,16 @@
+---
+- name: Packages base on a user input 
+  hosts: docker 
+  become: yes
+  vars_prompt:
+  - name: "package_name"
+    prompt: "Enter the name of package::"
+    private: no
+  - name: "action_name"
+    prompt: "Enter the action you need to perform like present/absent/latest::"
+    private: false
+  tasks: 
+  - name: user input package name is "{{ package_name }}" and action performing "{{ action_name }}"
+    yum: 
+      name: "{{ package_name }}"
+      state: "{{ action_name }}" 

@@ -1,0 +1,11 @@
+--- 
+- name: Removing the httpd server
+  hosts: all
+  become: yes 
+  tasks: 
+  - name: checking the httpd and removing on redhat machine 
+    yum: 
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+

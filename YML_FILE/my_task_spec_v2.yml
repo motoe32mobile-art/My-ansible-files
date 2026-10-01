@@ -1,0 +1,35 @@
+---
+- name: this is playbook for a tags 
+  hosts: docker
+  become: yes 
+  tasks: 
+  - name: Installation wget 
+    yum: 
+      name: wget 
+      state: present
+    tags: 
+      - wget_install
+      - imp
+      - never 
+  - name: installation vim 
+    yum: 
+      name: vim 
+      state: present
+    tags:
+      - vim_install
+      - imp 
+      - never
+  - name: removimg the wget 
+    yum: 
+      name: wget
+      state: absent 
+    tags: 
+      - wget_remove
+      - never
+  - name: removing vim 
+    yum: 
+      name: vim 
+      state: absent
+    tags: 
+      - vim_remove
+      - never

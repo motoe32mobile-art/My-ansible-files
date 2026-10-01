@@ -1,0 +1,8 @@
+- name: Fetch a file from remote hosts docker machine 
+  hosts: docker
+  gather_facts: false  
+  tasks:
+  - fetch:
+      src: /home/aadmin/node.txt
+      dest: /home/aadmin/ansible/
+      flat: yes   

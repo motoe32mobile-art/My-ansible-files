@@ -1,0 +1,8 @@
+---
+- name: This is second debug massage testing!!!
+  hosts: docker  
+  tasks:
+  - debug: 
+      msg: "my docker server ip aadress is {{inventory_hostname}}" 
+        
+

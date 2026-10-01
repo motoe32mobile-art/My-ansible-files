@@ -1,0 +1,7 @@
+---
+- name: This is a command line yml file 
+  hosts: localhost
+  tasks: 
+  - debug: 
+      msg: "My value of abd1 is {{ abd1 }} and my second var xyz1 is {{ abd2 }}"
+

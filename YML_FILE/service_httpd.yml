@@ -1,0 +1,10 @@
+---
+- hosts: docker
+  tasks:
+  - name: start the services  
+    shell: "systemctl status httpd"
+    register: httpd_status
+    ignore_errors: yes
+  - name: display the httpd service status 
+    debug:
+      var:  httpd_status.stdout_lines

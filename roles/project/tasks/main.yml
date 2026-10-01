@@ -1,0 +1,10 @@
+---
+# tasks file for project
+- name: This is my first tasks 
+  yum: 
+    name: wget
+    state: present 
+- name: Display the variable 
+  debug: 
+    var: myabd
+    

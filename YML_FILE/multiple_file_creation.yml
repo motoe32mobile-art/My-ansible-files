@@ -1,0 +1,17 @@
+---
+- name: files creation 
+  hosts: docker 
+  become: true 
+  vars:
+    my_files:
+      - name: /tmp/abd1.txt
+        content: "This is my abd1 file."
+      - name: /tmp/abd2.txt
+        content: we have abd2 data
+  tasks: 
+  - name: Creation files
+    copy: 
+      dest: "{{ item.name }}"
+      content: "{{ item.content }}"
+    loop: "{{ my_files }}"
+

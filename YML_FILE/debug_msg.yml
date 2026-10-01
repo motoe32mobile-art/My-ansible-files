@@ -1,0 +1,5 @@
+---
+- name: This is simple printing massage yml file.
+  hosts: docker
+  tasks: 
+  - debug: msg="Sardar Danish"

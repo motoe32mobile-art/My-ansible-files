@@ -1,0 +1,14 @@
+---
+- name: reading package details from json file 
+  hosts: docker 
+  become: yes
+  tasks: 
+  - name: Read package details from json file 
+    include_vars:
+      file: "{{package_info_file}}"
+    vars: 
+      package_info_file: "my_json.json"
+  - name: Install/Uninstall package
+    yum: 
+      name: "{{ package_info.package_name }}"
+      state: "{{ package_info.package_state }}"

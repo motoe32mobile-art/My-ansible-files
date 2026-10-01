@@ -1,0 +1,11 @@
+---
+- name: installation packages
+  hosts: docker 
+  become: yes
+  vars: 
+    package_name: "{{ mypkg }}"
+  tasks: 
+  - name: display the data 
+    yum:
+      name: "{{ package_name }}"
+      state: present

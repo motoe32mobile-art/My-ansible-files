@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - name: copy bash scripting to remote machine
+      copy:
+        src: /home/aadmin/ansible/get_service.sh
+        dest: /home/aadmin/get_service.sh
+        mode: 0755
+        owner: aadmin
+        group: aadmin
+    - name: Runing the bash script to remote home directory
+      shell: /home/aadmin/get_service.sh
+      register: command_output
+    - debug: 
+        var: command_output.stdout_lines
+

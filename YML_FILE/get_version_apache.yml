@@ -1,0 +1,11 @@
+--- 
+- hosts: all 
+  tasks: 
+  - name: check httpd version 
+    shell: httpd -v || apache2 -v 
+    register: httpd_version
+    when: ansible_os_family in ["RedHat","Debin"] 
+  - name: printing the httpd version 
+    debug:
+      var: httpd_version.stdout
+    when: httpd_version is defined 

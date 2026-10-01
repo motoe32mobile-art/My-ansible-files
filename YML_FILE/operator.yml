@@ -1,0 +1,50 @@
+---
+- hosts: localhost
+  vars_prompt: 
+  - name: c 
+    prompt: "Enter the c value:"
+    private: false
+  - name: d
+    prompt: "Enter the d value:"
+    private: false
+
+
+  vars: 
+    a: 10
+    b: 5 
+    name1: "Sardar"
+    name2: "Danish"
+    lists: [1,2,3,4,5]
+    my_list:
+    - one
+    - two
+    - three
+  tasks: 
+  - name: Arithemtic operation 
+    debug: 
+      msg: 
+       - "{{ a + b }}"
+       - "my {{c}} and {{d}} total is: {{ c|int+d|int }}"
+       - "{{ a - b }}"
+       - "{{ a * b }}"
+       - "{{ a / b }}"
+       - "{{ a % b }}"
+       - "{{ a ** b }}"
+  - name: comparsion operation
+    debug:
+      msg:
+       - "{{ a == b }}"
+       - "{{ a != b }}"
+       - "{{ a < b }}"
+       - "{{ a > b }}"
+       - "{{ a <= b }}"
+       - "{{ a >=  b }}"
+       - "{{ name1 in 'Sardar'}}"
+       - "{{ a > 5 or b > 10 }}"
+       - "{{ lists|max }}"
+       - "{{ lists|min }}"
+       - "{{ name1|lower }}"    
+       - "{{ name1|upper }}"
+       - "{{ name1|title }}"
+       - "{{ name1|replace('a','A') }}"
+       - "{{ my_list | join(',') }}"   

@@ -1,0 +1,7 @@
+{
+	"header_para": ["Hostname","Ip Address","Df -f (Mount storage)"], 
+	"hostname": "hostname | tr -d '\n'",
+	"ip_address": "hostname -I | tr -d '\n'",
+	"os_flavour": "cat /etc/*-release | grep -iw 'ID' | awk -F = '{print $2}' | tr -d '\n'",
+	"df_details": "df -h | grep -v 'tmpfs'"
+}

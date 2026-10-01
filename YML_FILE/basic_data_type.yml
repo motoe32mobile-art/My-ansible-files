@@ -1,0 +1,38 @@
+---
+- name: basic data type 
+  hosts: localhost
+  vars: 
+    my_int: 52
+    my_str: "Sardar Danish"
+    my_float: 3.00
+    my_bool: true
+    my_list: [1,2,3,4,5]
+    my_dict: {"name":"Danish", "age":"17"}
+    my_none: none 
+    my_datetime: 2026-07-01T07:28:29 
+  tasks: 
+  - name: printing the integer 
+    debug: 
+      msg: "{{ my_int }}"
+  - name: printing the str
+    debug:
+      msg: "{{ my_str }}"
+  - name: printing the float
+    debug:
+      msg: "{{ my_float }}"
+  - name: printing the boolean
+    debug:
+      msg: "{{ my_bool }}"
+  - name: printing the list
+    debug:
+      msg: "{{ my_list }}"
+  - name: printing the dictionary
+    debug:
+      msg: "{{ my_dict }}"
+  - name: printing the none
+    debug:
+      msg: "{{ my_none }}"
+  - name: printing the datetime
+    debug:
+      msg: "{{ my_datetime }}"
+

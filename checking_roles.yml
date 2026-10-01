@@ -1,0 +1,7 @@
+---
+- name: This is roles example
+  hosts: docker 
+  become: yes
+  roles: 
+  - project
+

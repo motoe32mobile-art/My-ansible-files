@@ -1,0 +1,5 @@
+Hostname,Ip Address,Df -f (Mount storage)
+ip-172-31-39-242.ap-south-1.compute.internal,172.31.39.242 ,"Filesystem        Size  Used Avail Use% Mounted on
+/dev/nvme0n1p1    8.0G  1.8G  6.3G  22% /
+/dev/nvme0n1p128   10M  1.3M  8.7M  13% /boot/efi
+"

@@ -1,0 +1,18 @@
+---
+- name: installation package 
+  hosts: docker 
+  become: yes 
+  vars: 
+    packages: 
+      - name: wget 
+        state: present 
+      - name: git 
+        state: present
+  tasks: 
+  - name: install package
+    yum: 
+      name: "{{ item.name }}"
+      state: "{{item.state}}"
+    loop: "{{ packages }}"
+
+    

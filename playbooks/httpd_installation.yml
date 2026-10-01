@@ -1,0 +1,8 @@
+---
+- name: Installation httpd pakage to remote machine 
+  hosts: all
+  tasks: 
+  - name: Install the httpd 
+    yum: 
+      name: httpd
+      state: present      

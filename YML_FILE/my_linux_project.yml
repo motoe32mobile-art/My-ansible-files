@@ -1,0 +1,35 @@
+---
+- hosts: all 
+  gather_facts: yes 
+  tasks:
+  - name: Removing old python file 
+    file: 
+      path: /home/aadmin/my_linux.py
+      state: absent 
+  - name: Copy the /home/aadmin/ansible/my_linux.py file to remote home directory
+    copy: 
+      src: /home/aadmin/ansible/my_linux.py
+      dest: /home/aadmin
+      mode: 0755
+      owner: aadmin
+      group: aadmin
+  - name: Copy to json file /home/aadmin/ansible/my_linux.json to remote home directory
+    copy: 
+      src: /home/aadmin/ansible/my_linux.json
+      dest: /home/aadmin
+      owner: aadmin
+      group: aadmin
+  - name: Removiing old csv file for the remote machine
+    file:
+      path: /home/aadmin/DAILY_REPORTS.csv
+      state: absent
+  - name: Executing the python script from remote endpoint
+    command: python3 /home/aadmin/my_linux.py
+  - name: Fetching the /home/aadmin/DAILY_REPORTS.csv to the ansible master.
+    fetch:  
+      src: /home/aadmin/DAILY_REPORTS.csv
+      dest: /home/aadmin/ansible/CSV/DAILY_REPORTS{{inventory_hostname}}_{{ansible_date_time.minute}}.csv
+      flat: yes  
+      backup: yes
+
+           

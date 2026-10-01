@@ -1,0 +1,5 @@
+Hostname,Ip Address,Df -f (Mount storage)
+myserver,172.31.44.4 ,"Filesystem        Size  Used Avail Use% Mounted on
+/dev/nvme0n1p1    8.0G  2.4G  5.6G  31% /
+/dev/nvme0n1p128   10M  1.3M  8.7M  13% /boot/efi
+"

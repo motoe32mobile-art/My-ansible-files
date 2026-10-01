@@ -1,0 +1,10 @@
+---
+- name: This is second debug massage testing!!!
+  hosts: docker  
+  tasks:
+  - debug: 
+      msg: 
+      - "Muhammad Danish"
+      - "sindh karachi"
+      - "pakistan" 
+

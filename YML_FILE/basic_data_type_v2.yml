@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  vars: 
+    a: 52
+    b: 52.00
+    c: "Sardar Danish"
+    d: true
+  tasks:
+    - debug: 
+        msg:
+        - "my a varaible value is: {{a}} my varaible type is {{a|type_debug}}"
+        - "my b varaible value is: {{b}} my varaible type is {{b|type_debug}}"
+        - "my c varaible value is: {{c}} my varaible type is {{c|type_debug}}"
+        - "my d varaible value is: {{d}} my varaible type is {{d|type_debug}}"
+       

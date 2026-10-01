@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  vars_prompt: 
+    - name: "abd"
+      prompt: "Enter the value"
+      private: no
+  tasks: 
+  - debug:
+      msg:
+        - "the varaible is : {{ abd }}" 
+        

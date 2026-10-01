@@ -1,0 +1,19 @@
+---
+- name: Installation packages
+  hosts: docker
+  become: yes
+  vars: 
+    packages:
+      - wget 
+      - vim 
+  tasks: 
+  - name: update package file
+    yum: 
+      update_cache: true
+  - name: packages list 
+    yum: 
+      name: "{{ packages }}"
+      state: present
+
+
+

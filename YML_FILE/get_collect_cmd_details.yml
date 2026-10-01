@@ -1,0 +1,34 @@
+---
+- hosts: all
+  tasks:
+  - name: Adding the header is the csv file 
+    lineinfile: 
+      path: /home/aadmin/os_output.csv
+      line: "HOSTNAME,IP ADDRESS,DF -h (mount details)"
+      create: yes 
+
+  - name: collecting hostname 
+    shell: "hostname | tr -d '\n'"
+    register: hostname_details 
+  - debug:
+      var: hostname_details.stdout
+  - name: Collecting IP address
+    shell: "hostname -I | tr -d '\n'"
+    register: ip_details 
+  - debug:
+      var: ip_details.stdout
+  - name: collecting the disk storage output
+    shell: "df -h | grep -v 'tmpfs'"
+    register: df_details
+  - debug:
+      var: df_details.stdout
+  - name: Save data to csv file 
+    lineinfile: 
+      dest: /home/aadmin/os_output.csv 
+      line: "{{ hostname_details.stdout }}.{{ ip_details.stdout }}.{{ df_details.stdout | replace('\n', ' ') }}"
+      insertafter: EOF 
+  - name: Fetching the /home/aadmin/os_output.csv file to ansible master machine
+    fetch:
+      src: /home/aadmin/os_output.csv
+      dest: /home/aadmin/ansible/os_output_{{ ansible_hostname }}_{{ ansible_date_time.hour}}_{{ ansible_date_time.minute}}.csv
+      flat: yes 

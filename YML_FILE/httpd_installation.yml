@@ -1,0 +1,14 @@
+---
+- name: Install wget package on remote machine
+  hosts: docker
+  tasks:
+  - name: Ensure wget is installed
+    become: yes
+    yum:
+        name: wget
+        state: present
+  - name: installing a nginx 
+    become: yes 
+    yum: 
+      name: nginx 
+      state: present     

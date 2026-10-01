@@ -1,0 +1,8 @@
+---
+- name: Reading yml file from playbook
+  hosts: docker
+  tasks: 
+  - name: Installation wget 
+    yum:
+      name: "{{ packages.package_wget.name }}"
+      state: "{{ packages.package_wget.state }}"
